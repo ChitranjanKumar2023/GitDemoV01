@@ -15,7 +15,8 @@ public class GitTest
 		WebDriver driver = new ChromeDriver();
 		
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-		driver.findElement(By.name("username")).sendKeys("Admin");
+		driver.findElement(By.cssSelector("input[placeholder='Username']")).sendKeys("Admin");
+		//driver.findElement(By.name("username")).sendKeys("Admin");
 	}
 	
 }
