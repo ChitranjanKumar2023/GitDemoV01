@@ -1,22 +1,22 @@
 package com.git.test;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class GitTest 
+public class GitJenkinsDemo 
 {
-
-	public static void main(String args[])
+	@Test
+	public void startBrowser()
 	{
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
 		
+		driver.manage().window().maximize();
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-		driver.findElement(By.cssSelector("input[placeholder='Username']")).sendKeys("Admin");
-		//driver.findElement(By.name("username")).sendKeys("Admin");
+		Assert.assertTrue(driver.getTitle().contains("Orange"),"Title does not match");
 	}
-	
 }
